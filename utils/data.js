@@ -114,4 +114,17 @@ const names = [
     return results;
   };
 
-  
+  const getRandomThoughts = (int) => {
+    const results = [];
+    for (let i = 0; i < int; i++) {
+        results.push({
+          thoughtText: getRandomArrItem(descriptionsBodies),
+          username: getRandomName(),
+          reactions: [...getRandomReaction(2)]
+        });
+      }
+      return results;
+  }
+
+  module.exports = { getRandomName, getRandomReaction, getRandomThoughts };
+
