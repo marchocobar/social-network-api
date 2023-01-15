@@ -1,11 +1,20 @@
 const { ObjectId } = require('mongoose').Types;
 const { User, Thought } = require('../models');
 
+
+// const headCount = async () =>
+//   User.aggregate()
+//     .count('userCount')
+//     .then((numberOfUsers) => numberOfUsers);
+
 module.exports = {
     getUsers(req, res) {
-        User.find()
-            .then((users) => res.json(users))
-            .catch((err) => res.status(500).json(err));
+        User.find()            
+        .then((users) => console.log(res.json(users)))
+        .catch((err) => {
+          console.log(err);
+          return res.status(500).json(err);
+        });
     },
     getSingleUser(req, res) {
         User.findOne({ _id: req.params.userId })

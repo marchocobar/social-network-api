@@ -10,9 +10,10 @@ connection.once('open', async () => {
     await User.deleteMany({});
 
     const users = [];
-    const thoughts = getRandomThoughts(10);
+    
 
     for (let i = 0; i < 20; i++) {
+        const thoughts = getRandomThoughts(10);
         const username = getRandomName();
         const email = `${username}${'@mail.com'}`;
         const friends = getRandomName(3)
